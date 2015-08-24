@@ -33,7 +33,8 @@ $(function() {
          */
 
          for (feed in allFeeds) {
-           console.log(allFeeds[feed].url);
+           //console.log(allFeeds[feed].url);
+           expect(allFeeds[feed].url).toBeDefined();
 
          }
 
