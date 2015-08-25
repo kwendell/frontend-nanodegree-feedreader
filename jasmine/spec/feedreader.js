@@ -69,7 +69,7 @@ $(function() {
               var element = $(".menu-hidden");
               expect(element).not.toBeNull();
 
-            })
+            });
 
 
 
@@ -78,6 +78,37 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+		    it ('menu changes visibility', function() {
+			    var element = $(".menu-hidden");
+                expect(element).not.toBeNull();
+			 
+			  var numClicks =0;
+			
+			
+			  $(".menu-icon-link").click(function() {
+			   
+			
+			    numClicks++;
+			    numClicks = numClicks % 2;
+			  
+				
+				
+			    if (numClicks==0)  {
+				 var element = $(".menu-hidden");
+				 alert("even clicks (1):"+element.length);
+             //   expect(element.length).toEqual(1);
+			    
+			    
+			    } else {
+				
+				 var element = $(".menu-hidden");
+				  alert("odd clicks (0):"+element.length);
+               //   expect(element.length).toEqual(0);
+			      
+			    }
+			  
+			});
+			});
 		});
 
 
