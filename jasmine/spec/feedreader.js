@@ -63,6 +63,8 @@ $(function() {
          */
 		 //$(".menu-hidden");
 		describe('Menu', function() {
+		     var body = document.body;
+			 
 
 
             it('menu element hidden by default', function(){
@@ -78,37 +80,26 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-		    it ('menu changes visibility', function() {
-			    var element = $(".menu-hidden");
-                expect(element).not.toBeNull();
-			 
-			  var numClicks =0;
+		   
+			//'.menu-icon-link','click');
+	     it('should show menu changes visibly when the menu icon is clicked', function(){
+            var body = $("body");
+            $('.menu-icon-link').trigger('click');
+            expect($(".menu-hidden").length).toBe(0);
 			
+			$('.menu-icon-link').trigger('click');
+			expect($(".menu-hidden").length).toBe(1);
+         
+        
+       
+        //    $('menu-icon-link').trigger('click');
+		//	  expect($("body")[0].className).not.toBe('menu-hidden');
+           
+          }); 
+		 
 			
-			  $(".menu-icon-link").click(function() {
-			   
+		
 			
-			    numClicks++;
-			    numClicks = numClicks % 2;
-			  
-				
-				
-			    if (numClicks==0)  {
-				 var element = $(".menu-hidden");
-				 alert("even clicks (1):"+element.length);
-             //   expect(element.length).toEqual(1);
-			    
-			    
-			    } else {
-				
-				 var element = $(".menu-hidden");
-				  alert("odd clicks (0):"+element.length);
-               //   expect(element.length).toEqual(0);
-			      
-			    }
-			  
-			});
-			});
 		});
 
 
