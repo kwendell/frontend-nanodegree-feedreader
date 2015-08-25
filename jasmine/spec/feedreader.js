@@ -83,17 +83,15 @@ $(function() {
 		   
 			//'.menu-icon-link','click');
 	     it('should show menu changes visibly when the menu icon is clicked', function(){
-            var body = $("body");
+           
             $('.menu-icon-link').trigger('click');
             expect($(".menu-hidden").length).toBe(0);
+		
 			
 			$('.menu-icon-link').trigger('click');
 			expect($(".menu-hidden").length).toBe(1);
+			
          
-        
-       
-        //    $('menu-icon-link').trigger('click');
-		//	  expect($("body")[0].className).not.toBe('menu-hidden');
            
           }); 
 		 
