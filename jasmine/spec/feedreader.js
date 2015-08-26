@@ -118,4 +118,25 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+		 
+		 describe('New Feed Selection', function(){
+		 var entries_before,entries_after;
+        beforeEach(function(done){
+        $('.feed').empty()
+
+        loadFeed(0, function() {
+            entries_before = $('.feed').find("h2").text();
+        });
+
+        loadFeed(1, function() {
+            entries_after = $('.feed').find("h2").text();
+            done();
+        });
+        });
+
+       it('changes the content', function(done){
+        expect(entries_before).not.toEqual(entries_after)
+        done();
+      });
+});
 }());
