@@ -109,6 +109,25 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+		 describe('Initial Entries', function(){
+		
+          beforeEach(function(done){
+            $('.feed').empty()
+
+            loadFeed(0, function() {
+			done();
+            
+            });
+
+            
+          });
+
+         it('at least one entry', function(done){
+		   var numEntriesAfter = $('.feed .entry').length;
+           expect(numEntriesAfter).toBeGreaterThan(0)
+           done();
+         });
+       });
 		 
 	
 
