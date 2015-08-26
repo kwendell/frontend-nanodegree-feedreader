@@ -83,6 +83,9 @@ $(function() {
 		   
 			//'.menu-icon-link','click');
 	     it('should show menu changes visibly when the menu icon is clicked', function(){
+		 /* After clicking the menu and looking at the resulting DOM, I used the criteria
+		  * of an item with class .menu-hidden found, or not.
+		  */
            
             $('.menu-icon-link').trigger('click');
             expect($(".menu-hidden").length).toBe(0);
@@ -110,6 +113,10 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 		 describe('Initial Entries', function(){
+		 
+		 /* Execute loadFeed, wait until done, count the 
+		  * required elements and verify greater than 0.
+		  */
 		
           beforeEach(function(done){
             $('.feed').empty();
@@ -137,6 +144,12 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+		 
+		 /* I struggled with this.   The basic approach is call
+		  * loadFeed twice in succession, waiting for each to 
+		  * complete, and then ensure that the before/after
+		  * content differs.
+		  */
 		 
 		describe('New Feed Selection', function(){
 		  var entries_before,entries_after;
