@@ -145,7 +145,20 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 		 
-		 /* I struggled with this.   The basic approach is call
+		 /* I struggled with this and the previous case involving the 
+		  * asynchronous calls.   I don't think I fully understood
+          *	what was going on chronologically.  I was logging to the 
+          * console and didn't understand the sequence of events.
+		  * I think I was not implementing done() in the right scope.
+		  *
+          * I want to acknowledge
+		  * John and Ralph's contributions to the FEND P6 Forum,
+          * Topic: Last Test Suite 'New Feed Selection' Not Working.		  
+		  * Even after
+		  * implementing the suggestions I continued to have issues 
+		  * with variable definitions.  
+		  *
+		  * The basic approach is call
 		  * loadFeed twice in succession, waiting for each to 
 		  * complete, and then ensure that the before/after
 		  * content differs.
