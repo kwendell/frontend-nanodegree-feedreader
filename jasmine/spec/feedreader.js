@@ -62,7 +62,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
 		 //$(".menu-hidden");
-		describe('Menu', function() {
+		describe('The menu', function() {
 		     var body = document.body;
 			 
 
@@ -110,26 +110,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 		 
-	describe('Initial Entries', function() {
-	 // var entries;
 	
-	  beforeEach(function(done) { 
-	    $('.feed').empty();
-	    loadFeed(0,function() {
-		  entries = $('.feed  .entry');
-		  alert(this.entries.length);
-		});
-		done();
-      });
-	  
-	  
-	  it("expect at least one entry", function(done) {
-	    
-		
-		expect(this.entries.length).toBeGreaterThan(0);
-		done();
-	  });
-    });
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
