@@ -112,7 +112,7 @@ $(function() {
 		 describe('Initial Entries', function(){
 		
           beforeEach(function(done){
-            $('.feed').empty()
+            $('.feed').empty();
 
             loadFeed(0, function() {
 			done();
@@ -124,7 +124,7 @@ $(function() {
 
          it('at least one entry', function(done){
 		   var numEntriesAfter = $('.feed .entry').length;
-           expect(numEntriesAfter).toBeGreaterThan(0)
+           expect(numEntriesAfter).toBeGreaterThan(0);
            done();
          });
        });
@@ -141,7 +141,7 @@ $(function() {
 		describe('New Feed Selection', function(){
 		  var entries_before,entries_after;
           beforeEach(function(done){
-            $('.feed').empty()
+            $('.feed').empty();
 
             loadFeed(0, function() {
               entries_before = $('.feed').find("h2").text();
@@ -154,7 +154,7 @@ $(function() {
           });
 
          it('changes the content', function(done){
-           expect(entries_before).not.toEqual(entries_after)
+           expect(entries_before).not.toEqual(entries_after);
            done();
          });
        });
