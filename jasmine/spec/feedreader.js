@@ -145,17 +145,19 @@ $(function() {
 
             loadFeed(0, function() {
               entries_before = $('.feed').find("h2").text();
+			  done();
             });
 
-            loadFeed(1, function() {
-              entries_after = $('.feed').find("h2").text();
-              done();
-            });
+           
           });
 
          it('changes the content', function(done){
+		    loadFeed(1, function() {
+              entries_after = $('.feed').find("h2").text();
+			  done();
+            });
            expect(entries_before).not.toEqual(entries_after);
-           done();
+         
          });
        });
 }());
