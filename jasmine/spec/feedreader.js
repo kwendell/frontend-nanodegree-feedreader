@@ -178,10 +178,8 @@ $(function() {
 
     it('changes the content', function(done) {
       
-	  console.log('gets here');
+	 
       expect(entriesBefore).not.toEqual(entriesAfter);
-	  console.log("entriesBefore: "+entriesBefore);
-	  console.log("entriesAfter: "+entriesAfter);
 	  done();
 
     });
