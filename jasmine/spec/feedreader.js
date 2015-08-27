@@ -145,18 +145,17 @@ $(function() {
        * Remember, loadFeed() is asynchronous.
        */
 
-  /* I struggled with this and the previous case involving the
-   * asynchronous calls.   I don't think I fully understood
-   *	what was going on chronologically.  I was logging to the
-   * console and didn't understand the sequence of events.
-   * I think I was not implementing done() in the right scope.
-   *
-   *
-   *
-   * The basic approach is call
+
+   /*
+   * The basic approach is  to call
    * loadFeed twice in succession, waiting for each to
    * complete, and then ensure that the before/after
-   * content differs.
+   * content differs.  I had to remove the done() from the 
+   * first call in beforeEach.  It was causing Jasmine to 
+   * proceed to the next step in its before-it-after sequence.
+   * The second load call never happened as a result and 
+   * I got a false positive.
+   * 
    */
 
   describe('New Feed Selection', function() {
