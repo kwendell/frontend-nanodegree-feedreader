@@ -27,15 +27,17 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
+
+        /* This test loops through each feed in the allFeeds object and ensures
+         * it has a URL defined and that the URL is not empty.
          */
+
         it('urls are defined and not null', function() {
-         for (feed in allFeeds) {
-           expect(allFeeds[feed].url).toBeDefined();
-           expect(allFeeds[feed].url).not.toBeNull();
-         }
+            var allFeedsLen = allFeeds.length;
+            for (var k=0; k<allFeedsLen; k++) {
+                expect(allFeeds[k].url).toBeDefined();
+                expect(allFeeds[k].url).not.toBeNull();
+            }
         });
 
 
@@ -44,11 +46,12 @@ $(function() {
          * and that the name is not empty.
          */
 
-		  it('names are defined and not null', function() {
-         for (feed in allFeeds) {
-           expect(allFeeds[feed].name).toBeDefined();
-           expect(allFeeds[feed].name).not.toBeNull();
-         }
+		it('names are defined and not null', function() {
+            var allFeedsLen = allFeedsLen.length;
+            for (var l = 0 ; l < allFeeds.length;  l++ ) {
+                expect(allFeeds[l].name).toBeDefined();
+                expect(allFeeds[l].name).length.toBeGreaterThan(0);
+            }
         });
 
     });
@@ -64,7 +67,7 @@ $(function() {
 		 //$(".menu-hidden");
 		describe('The menu', function() {
 		     var body = document.body;
-			 
+
 
 
             it('menu element hidden by default', function(){
@@ -80,27 +83,27 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-		   
+
 			//'.menu-icon-link','click');
 	     it('should show menu changes visibly when the menu icon is clicked', function(){
 		 /* After clicking the menu and looking at the resulting DOM, I used the criteria
 		  * of an item with class .menu-hidden found, or not.
 		  */
-           
+
             $('.menu-icon-link').trigger('click');
             expect($(".menu-hidden").length).toBe(0);
-		
-			
+
+
 			$('.menu-icon-link').trigger('click');
 			expect($(".menu-hidden").length).toBe(1);
-			
-         
-           
-          }); 
-		 
-			
-		
-			
+
+
+
+          });
+
+
+
+
 		});
 
 
@@ -113,20 +116,20 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 		 describe('Initial Entries', function(){
-		 
-		 /* Execute loadFeed, wait until done, count the 
+
+		 /* Execute loadFeed, wait until done, count the
 		  * required elements and verify greater than 0.
 		  */
-		
+
           beforeEach(function(done){
             $('.feed').empty();
 
             loadFeed(0, function() {
 			done();
-            
+
             });
 
-            
+
           });
 
          it('at least one entry', function(done){
@@ -135,8 +138,8 @@ $(function() {
            done();
          });
        });
-		 
-	
+
+
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
@@ -144,26 +147,21 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-		 
-		 /* I struggled with this and the previous case involving the 
+
+		 /* I struggled with this and the previous case involving the
 		  * asynchronous calls.   I don't think I fully understood
-          *	what was going on chronologically.  I was logging to the 
+          *	what was going on chronologically.  I was logging to the
           * console and didn't understand the sequence of events.
 		  * I think I was not implementing done() in the right scope.
 		  *
-          * I want to acknowledge
-		  * John and Ralph's contributions to the FEND P6 Forum,
-          * Topic: Last Test Suite 'New Feed Selection' Not Working.		  
-		  * Even after
-		  * implementing the suggestions I continued to have issues 
-		  * with variable definitions.  
+          *
 		  *
 		  * The basic approach is call
-		  * loadFeed twice in succession, waiting for each to 
+		  * loadFeed twice in succession, waiting for each to
 		  * complete, and then ensure that the before/after
 		  * content differs.
 		  */
-		 
+
 		describe('New Feed Selection', function(){
 		  var entries_before,entries_after;
           beforeEach(function(done){
@@ -174,7 +172,7 @@ $(function() {
 			  done();
             });
 
-           
+
           });
 
          it('changes the content', function(done){
@@ -183,7 +181,7 @@ $(function() {
 			  done();
             });
            expect(entries_before).not.toEqual(entries_after);
-         
+
          });
        });
 }());
