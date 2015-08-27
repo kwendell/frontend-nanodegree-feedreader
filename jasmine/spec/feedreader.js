@@ -13,16 +13,16 @@ $(function() {
    * feeds definitions, the allFeeds variable in our application.
    */
   describe('RSS Feeds', function() {
-    /* This is our first test - it tests to make sure that the
+    /* This tests to make sure that the
      * allFeeds variable has been defined and that it is not
-     * empty. Experiment with this before you get started on
-     * the rest of this project. What happens when you change
-     * allFeeds in app.js to be an empty array and refresh the
-     * page?
+     * empty.  
+	 * Approach:  Thhe allFeeds array is tested
+     * to be defined and that it has at least 
+	 * one element.
      */
     it('are defined', function() {
       expect(allFeeds).toBeDefined();
-      expect(allFeeds.length).not.toBe(0);
+      expect(allFeeds.length).toBeGreaterThan(0);
     });
 
 
@@ -35,7 +35,7 @@ $(function() {
       var allFeedsLen = allFeeds.length;
       for (var k = 0; k < allFeedsLen; k++) {
         expect(allFeeds[k].url).toBeDefined();
-        expect(allFeeds[k].url).not.toBeNull();
+        expect(allFeeds[k].url.length).toBeGreaterThan(0);
       }
     });
 
@@ -166,6 +166,10 @@ $(function() {
 
       loadFeed(0, function() {
         entriesBefore = $('.feed').find("h2").text();
+        
+      });
+	  loadFeed(1, function() {
+        entriesAfter = $('.feed').find("h2").text();
         done();
       });
 
@@ -173,11 +177,12 @@ $(function() {
     });
 
     it('changes the content', function(done) {
-      loadFeed(1, function() {
-        entriesAfter = $('.feed').find("h2").text();
-        done();
-      });
+      
+	  console.log('gets here');
       expect(entriesBefore).not.toEqual(entriesAfter);
+	  console.log("entriesBefore: "+entriesBefore);
+	  console.log("entriesAfter: "+entriesAfter);
+	  done();
 
     });
   });
