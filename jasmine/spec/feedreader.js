@@ -160,12 +160,12 @@ $(function() {
    */
 
   describe('New Feed Selection', function() {
-    var entries_before, entries_after;
+    var entriesBefore, entriesAfter;
     beforeEach(function(done) {
       $('.feed').empty();
 
       loadFeed(0, function() {
-        entries_before = $('.feed').find("h2").text();
+        entriesBefore = $('.feed').find("h2").text();
         done();
       });
 
@@ -174,10 +174,10 @@ $(function() {
 
     it('changes the content', function(done) {
       loadFeed(1, function() {
-        entries_after = $('.feed').find("h2").text();
+        entriesAfter = $('.feed').find("h2").text();
         done();
       });
-      expect(entries_before).not.toEqual(entries_after);
+      expect(entriesBefore).not.toEqual(entriesAfter);
 
     });
   });
