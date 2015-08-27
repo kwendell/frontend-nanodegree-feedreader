@@ -47,10 +47,10 @@ $(function() {
          */
 
 		it('names are defined and not null', function() {
-            var allFeedsLen = allFeedsLen.length;
+            var allFeedsLen = allFeeds.length;
             for (var l = 0 ; l < allFeeds.length;  l++ ) {
                 expect(allFeeds[l].name).toBeDefined();
-                expect(allFeeds[l].name).length.toBeGreaterThan(0);
+                expect(allFeeds[l].name.length).toBeGreaterThan(0);
             }
         });
 
