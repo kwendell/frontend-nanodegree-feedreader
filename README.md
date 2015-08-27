@@ -1,3 +1,20 @@
+
+Usage:
+
+The project can be exercised by opening index.html found in a browser.
+
+
+Acknowledgements:
+
+ I want to acknowledge John and Ralph's contributions to the FEND P6 Forum,
+ Topic: Last Test Suite 'New Feed Selection' Not Working.
+
+ The blog post from Html Goodies at http://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
+
+The Jasmine Introduction pages : http://jasmine.github.io/2.0/introduction.html
+
+
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
